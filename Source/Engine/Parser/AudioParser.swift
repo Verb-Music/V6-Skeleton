@@ -98,7 +98,7 @@ class AudioParser: AudioParsable {
         let predictedCount = AVAudioPacketCount(Double(sizeOfFileInBytes) / bytesPerPacket)
 
         guard networkProgress != 1.0 else {
-            return max(AVAudioPacketCount(audioPackets.count), predictedCount)
+            return min(AVAudioPacketCount(audioPackets.count), predictedCount)
         }
 
         return predictedCount
@@ -190,6 +190,7 @@ class AudioParser: AudioParsable {
         // Check if we've reached the end of the packets. We have two scenarios:
         //     1. We've reached the end of the packet data and the file has been completely parsed
         //     2. We've reached the end of the data we currently have downloaded, but not the file
+        
         let packetIndex = index - indexSeekOffset
 
         var exception: ParserError?
