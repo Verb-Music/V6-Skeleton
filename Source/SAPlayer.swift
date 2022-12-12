@@ -231,8 +231,8 @@ public class SAPlayer {
             return ret
         }
 
-        audioModifiers.append(AVAudioUnitTimePitch(audioComponentDescription: componentDescription))
-        NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption), name: AVAudioSession.interruptionNotification, object: nil)
+        //audioModifiers.append(AVAudioUnitTimePitch(audioComponentDescription: componentDescription))
+        //NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption), name: AVAudioSession.interruptionNotification, object: nil)
     }
 
     /**
