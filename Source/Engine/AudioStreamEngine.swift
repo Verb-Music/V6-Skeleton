@@ -140,9 +140,9 @@ class AudioStreamEngine: AudioEngine {
         }
     }
     
-    init(withRemoteUrl url: AudioURL, delegate:AudioEngineDelegate?, bitrate: SAPlayerBitrate) {
+    init(withRemoteUrl url: AudioURL, delegate:AudioEngineDelegate?, bitrate: SAPlayerBitrate, engine: AvAudioEngine) {
         Log.info(url)
-        super.init(url: url, delegate: delegate, engineAudioFormat: AudioEngine.defaultEngineAudioFormat)
+        super.init(url: url, delegate: delegate, engineAudioFormat: AudioEngine.defaultEngineAudioFormat, engine: engine)
         
         switch bitrate {
         case .high:
