@@ -40,6 +40,8 @@ class AudioClockDirector {
     private var playingStatusClosures: DirectorThreadSafeClosures<SAPlayingStatus> = DirectorThreadSafeClosures()
     private var bufferClosures: DirectorThreadSafeClosures<SAAudioAvailabilityRange> = DirectorThreadSafeClosures()
 
+    public var killingPassThrough:Bool = false
+
     private init() {}
 
     func setKey(_ key: Key) {
@@ -63,6 +65,9 @@ class AudioClockDirector {
         durationClosures.clear()
         playingStatusClosures.clear()
         bufferClosures.clear()
+    }
+    func setKill(_ value:Bool){
+        killingPassThrough = value;
     }
 
     // MARK: - Attaches

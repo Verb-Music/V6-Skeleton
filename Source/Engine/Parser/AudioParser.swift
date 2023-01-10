@@ -85,6 +85,9 @@ class AudioParser: AudioParsable {
 
     public var totalPredictedPacketCount: AVAudioPacketCount {
         if parsedAudioHeaderPacketCount != 0 {
+            if(!AudioClockDirector.shared.killingPassThrough){
+                return AVAudioPacketCount(parsedAudioHeaderPacketCount)
+            }
             // TODO: we should log the duration to the server for better user experience
             return max(AVAudioPacketCount(parsedAudioHeaderPacketCount), AVAudioPacketCount(audioPackets.count))
         }

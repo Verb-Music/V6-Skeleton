@@ -26,6 +26,15 @@
 import Foundation
 
 public extension SAPlayer {
+    enum PassThrough {
+        
+        public static func setKilling(_ value:Bool){
+            AudioClockDirector.shared.setKill(value)
+        }
+        public static func getEngineFailed() -> Bool {
+            return AudioClockDirector.shared.EngineLoadFail
+        }
+    }
     /**
      Receive updates for changing values from the player, such as the duration, elapsed time of playing audio, download progress, and etc.
      */
